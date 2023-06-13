@@ -1,7 +1,7 @@
 import { DriverService } from '../service/driver.service';
 import { DriverRepository } from '../repository/driver.repository';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ClaimRepository } from '../repository/claim.repository';
+import { ClaimRepository } from '../modules/claim/claim.repository';
 import { DriverSessionRepository } from '../repository/driver-session.repository';
 import {
   Body,
@@ -17,7 +17,7 @@ import * as dayjs from 'dayjs';
 import { DriverSessionDto } from '../dto/driver-session.dto';
 import { TransitDto } from '../dto/transit.dto';
 import { Status, Transit } from '../entity/transit.entity';
-import { ClaimDto } from '../dto/claim.dto';
+import { ClaimDto } from '../modules/claim/claim.dto';
 
 @Controller('driverreport')
 export class DriverReportController {

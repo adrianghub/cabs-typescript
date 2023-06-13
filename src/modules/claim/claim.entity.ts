@@ -1,7 +1,7 @@
-import { BaseEntity } from '../common/base.entity';
-import { Client } from './client.entity';
+import { BaseEntity } from '../../common/base.entity';
+import { Client } from '../../entity/client.entity';
 import { Column, Entity, JoinColumn, ManyToOne, OneToOne } from 'typeorm';
-import { Transit } from './transit.entity';
+import { Transit } from '../../entity/transit.entity';
 
 export enum ClaimStatus {
   DRAFT = 'draft',

@@ -1,6 +1,6 @@
 import { BaseEntity } from '../common/base.entity';
 import { Column, Entity, OneToMany } from 'typeorm';
-import { Claim } from './claim.entity';
+import { Claim } from '../modules/claim/claim.entity';
 
 export enum ClientType {
   INDIVIDUAL = 'individual',

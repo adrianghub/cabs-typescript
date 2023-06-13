@@ -1,6 +1,6 @@
 import { BaseEntity } from '../common/base.entity';
 import { Column, Entity, ManyToOne } from 'typeorm';
-import { Claim } from './claim.entity';
+import { Claim } from '../modules/claim/claim.entity';
 
 @Entity()
 export class ClaimAttachment extends BaseEntity {

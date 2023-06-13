@@ -1,7 +1,7 @@
 import { EntityRepository, Repository } from 'typeorm';
-import { Claim } from '../entity/claim.entity';
-import { Client } from '../entity/client.entity';
-import { Transit } from '../entity/transit.entity';
+import { Claim } from './claim.entity';
+import { Client } from '../../entity/client.entity';
+import { Transit } from '../../entity/transit.entity';
 
 @EntityRepository(Claim)
 export class ClaimRepository extends Repository<Claim> {
