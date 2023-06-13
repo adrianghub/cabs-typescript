@@ -1,5 +1,5 @@
 import { EntityRepository, Repository } from 'typeorm';
-import { CarClass, CarStatus, CarType } from '../entity/car-type.entity';
+import { CarClass, CarStatus, CarType } from './car-type.entity';
 import { NotFoundException } from '@nestjs/common';
 
 @EntityRepository(CarType)

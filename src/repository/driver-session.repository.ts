@@ -1,6 +1,6 @@
 import { EntityRepository, MoreThan, Repository, IsNull } from 'typeorm';
 import { DriverSession } from '../entity/driver-session.entity';
-import { CarClass } from '../entity/car-type.entity';
+import { CarClass } from '../modules/car-type/car-type.entity';
 import { Driver } from '../entity/driver.entity';
 import { NotFoundException } from '@nestjs/common';
 

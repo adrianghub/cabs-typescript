@@ -1,5 +1,5 @@
-import { ClientDto } from './client.dto';
-import { AwardsAccount } from '../entity/awards-account.entity';
+import { ClientDto } from '../../dto/client.dto';
+import { AwardsAccount } from './awards-account.entity';
 
 export class AwardsAccountDto {
   private client: ClientDto;

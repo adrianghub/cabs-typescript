@@ -23,7 +23,7 @@
     "check-types": "tsc"
   },
   "dependencies": {
-    "@nestjs/common": "^8.0.0",
+    "@nestjs/common": "^9.4.3",
     "@nestjs/config": "^1.1.6",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
@@ -32,6 +32,7 @@
     "class-validator": "^0.13.2",
     "dayjs": "^1.10.7",
     "lodash.orderby": "^4.6.0",
+    "nestjs": "^0.0.1",
     "object-hash": "^2.2.0",
     "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",

@@ -2,8 +2,8 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DriverRepository } from '../repository/driver.repository';
 import { DriverSessionRepository } from '../repository/driver-session.repository';
-import { CarTypeService } from './car-type.service';
-import { CarClass } from '../entity/car-type.entity';
+import { CarTypeService } from '../modules/car-type/car-type.service';
+import { CarClass } from '../modules/car-type/car-type.entity';
 import { DriverSession } from '../entity/driver-session.entity';
 
 @Injectable()

@@ -1,4 +1,4 @@
-import { CarClass } from '../entity/car-type.entity';
+import { CarClass } from '../modules/car-type/car-type.entity';
 import { DriverSession } from '../entity/driver-session.entity';
 
 export class DriverSessionDto {

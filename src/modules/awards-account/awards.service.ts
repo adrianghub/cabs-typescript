@@ -1,20 +1,21 @@
-import { AwardsAccountDto } from '../dto/awards-account.dto';
-import { AwardedMiles } from '../entity/awarded-miles.entity';
 import {
   Injectable,
   NotFoundException,
   NotAcceptableException,
 } from '@nestjs/common';
+import { Type } from '../../entity/client.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ClientRepository } from '../repository/client.repository';
-import { TransitRepository } from '../repository/transit.repository';
-import { AppProperties } from '../config/app-properties.config';
-import { AwardsAccountRepository } from '../repository/awards-account.repository';
-import { AwardedMilesRepository } from '../repository/awarded-miles.repository';
-import { AwardsAccount } from '../entity/awards-account.entity';
+import { AppProperties } from '../../config/app-properties.config';
 import dayjs from 'dayjs';
-import { Client, Type } from '../entity/client.entity';
 import orderBy from 'lodash.orderby';
+import { AwardedMiles } from 'src/entity/awarded-miles.entity';
+import { Client } from 'src/entity/client.entity';
+import { ClientRepository } from 'src/repository/client.repository';
+import { TransitRepository } from 'src/repository/transit.repository';
+import { AwardedMilesRepository } from './awarded-miles.repository';
+import { AwardsAccountDto } from './awards-account.dto';
+import { AwardsAccount } from './awards-account.entity';
+import { AwardsAccountRepository } from './awards-account.repository';
 
 export interface IAwardsService {
   findBy: (clientId: string) => Promise<AwardsAccountDto>;

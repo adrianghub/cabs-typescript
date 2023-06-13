@@ -5,9 +5,8 @@ import { DriverController } from './controllers/driver.controller';
 import { DriverService } from './service/driver.service';
 import { DriverRepository } from './repository/driver.repository';
 import { AppProperties } from './config/app-properties.config';
-import { CarTypeRepository } from './repository/car-type.repository';
-import { CarTypeController } from './controllers/car-type.controller';
-import { CarTypeService } from './service/car-type.service';
+import { CarTypeRepository } from './modules/car-type/car-type.repository';
+import { CarTypeService } from './modules/car-type/car-type.service';
 import { DistanceCalculator } from './service/distance-calculator.service';
 import { InvoiceRepository } from './repository/invoice.repository';
 import { InvoiceGenerator } from './service/invoice-generator.service';
@@ -31,21 +30,22 @@ import { DriverTrackingController } from './controllers/driver-tracking.controll
 import { ClaimAttachmentRepository } from './repository/claim-attachment.repository';
 import { AddressRepository } from './repository/address.repository';
 import { DriverAttributeRepository } from './repository/driver-attribute.repository';
-import { AwardedMilesRepository } from './repository/awarded-miles.repository';
-import { AwardsAccountRepository } from './repository/awards-account.repository';
+import { AwardedMilesRepository } from './modules/awards-account/awarded-miles.repository';
+import { AwardsAccountRepository } from './modules/awards-account/awards-account.repository';
 import { ContractAttachmentRepository } from './repository/contract-attachment.repository';
 import { ContractRepository } from './repository/contract.repository';
 import { TransitAnalyzerService } from './service/transit-analyzer.service';
-import { AwardsService } from './service/awards.service';
+import { AwardsService } from './modules/awards-account/awards.service';
 import { ClaimService } from './service/claim.service';
 import { ContractService } from './service/contract.service';
 import { TransitService } from './service/transit.service';
 import { TransitAnalyzerController } from './controllers/transit-analyzer.controller';
 import { TransitController } from './controllers/transit.controller';
-import { AwardsAccountController } from './controllers/awards-account.controller';
 import { ClaimController } from './controllers/claim.controller';
 import { ContractController } from './controllers/contract.controller';
 import { DriverReportController } from './controllers/driver-report.controller';
+import { CarTypeController } from './modules/car-type/car-type.controller';
+import { AwardsAccountController } from './modules/awards-account/awards-account.controller';
 
 @Module({
   imports: [
