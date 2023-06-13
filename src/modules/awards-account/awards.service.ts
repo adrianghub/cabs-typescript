@@ -3,14 +3,14 @@ import {
   NotFoundException,
   NotAcceptableException,
 } from '@nestjs/common';
-import { Type } from '../../entity/client.entity';
+import { Type } from '../client/client.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { AppProperties } from '../../config/app-properties.config';
 import dayjs from 'dayjs';
 import orderBy from 'lodash.orderby';
 import { AwardedMiles } from 'src/entity/awarded-miles.entity';
-import { Client } from 'src/entity/client.entity';
-import { ClientRepository } from 'src/repository/client.repository';
+import { Client } from 'src/modules/client/client.entity';
+import { ClientRepository } from 'src/modules/client/client.repository';
 import { TransitRepository } from 'src/repository/transit.repository';
 import { AwardedMilesRepository } from './awarded-miles.repository';
 import { AwardsAccountDto } from './awards-account.dto';

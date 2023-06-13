@@ -3,7 +3,7 @@ import { DriverDto } from './driver.dto';
 import { ClaimDto } from '../modules/claim/claim.dto';
 import { AddressDto } from './address.dto';
 import { CarClass } from '../modules/car-type/car-type.entity';
-import { ClientDto } from './client.dto';
+import { ClientDto } from '../modules/client/client.dto';
 import * as dayjs from 'dayjs';
 import * as dayOfYear from 'dayjs/plugin/dayOfYear';
 import { NotAcceptableException } from '@nestjs/common';

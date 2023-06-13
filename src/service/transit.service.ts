@@ -4,7 +4,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ClientRepository } from '../repository/client.repository';
+import { ClientRepository } from '../modules/client/client.repository';
 import { TransitRepository } from '../repository/transit.repository';
 import { DriverRepository } from '../repository/driver.repository';
 import { DriverPositionRepository } from '../repository/driver-position.repository';

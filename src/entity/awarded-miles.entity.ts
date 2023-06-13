@@ -1,6 +1,6 @@
 import { BaseEntity } from '../common/base.entity';
 import { Column, Entity, ManyToOne } from 'typeorm';
-import { Client } from './client.entity';
+import { Client } from '../modules/client/client.entity';
 import { Transit } from './transit.entity';
 
 @Entity()

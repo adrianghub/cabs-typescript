@@ -1,5 +1,5 @@
 import { BaseEntity } from '../../common/base.entity';
-import { Client } from '../../entity/client.entity';
+import { Client } from '../client/client.entity';
 import { Column, Entity, JoinColumn, ManyToOne, OneToOne } from 'typeorm';
 import { Transit } from '../../entity/transit.entity';
 

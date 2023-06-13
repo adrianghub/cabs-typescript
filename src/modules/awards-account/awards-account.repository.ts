@@ -1,6 +1,6 @@
 import { EntityRepository, Repository } from 'typeorm';
 import { AwardsAccount } from './awards-account.entity';
-import { Client } from '../../entity/client.entity';
+import { Client } from '../client/client.entity';
 
 @EntityRepository(AwardsAccount)
 export class AwardsAccountRepository extends Repository<AwardsAccount> {

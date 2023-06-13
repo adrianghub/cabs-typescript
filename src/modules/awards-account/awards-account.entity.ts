@@ -1,6 +1,6 @@
 import { BaseEntity } from '../../common/base.entity';
 import { Column, Entity, JoinColumn, OneToOne } from 'typeorm';
-import { Client } from '../../entity/client.entity';
+import { Client } from '../client/client.entity';
 
 @Entity()
 export class AwardsAccount extends BaseEntity {

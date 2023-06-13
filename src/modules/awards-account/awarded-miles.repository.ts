@@ -1,5 +1,5 @@
 import { AwardedMiles } from 'src/entity/awarded-miles.entity';
-import { Client } from 'src/entity/client.entity';
+import { Client } from 'src/modules/client/client.entity';
 import { EntityRepository, Repository } from 'typeorm';
 
 @EntityRepository(AwardedMiles)

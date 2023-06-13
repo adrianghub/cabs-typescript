@@ -1,4 +1,4 @@
-import { ClientDto } from '../../dto/client.dto';
+import { ClientDto } from '../client/client.dto';
 import { AwardsAccount } from './awards-account.entity';
 
 export class AwardsAccountDto {

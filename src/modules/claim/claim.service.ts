@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ClientRepository } from '../../repository/client.repository';
+import { ClientRepository } from '../client/client.repository';
 import { TransitRepository } from '../../repository/transit.repository';
 import { AppProperties } from '../../config/app-properties.config';
 import { ClaimRepository } from './claim.repository';
@@ -10,7 +10,7 @@ import { ClientNotificationService } from '../../service/client-notification.ser
 import { DriverNotificationService } from '../../service/driver-notification.service';
 import { ClaimDto } from './claim.dto';
 import { Claim, ClaimStatus, CompletionMode } from './claim.entity';
-import { Type } from 'src/entity/client.entity';
+import { Type } from 'src/modules/client/client.entity';
 
 @Injectable()
 export class ClaimService {

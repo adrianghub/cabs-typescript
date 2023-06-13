@@ -1,11 +1,11 @@
 import { InjectRepository } from '@nestjs/typeorm';
-import { ClientRepository } from '../repository/client.repository';
+import { ClientRepository } from '../modules/client/client.repository';
 import { TransitRepository } from '../repository/transit.repository';
 import { AddressRepository } from '../repository/address.repository';
 import { Address } from '../entity/address.entity';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Status, Transit } from '../entity/transit.entity';
-import { Client } from '../entity/client.entity';
+import { Client } from '../modules/client/client.entity';
 import dayjs from 'dayjs';
 
 @Injectable()

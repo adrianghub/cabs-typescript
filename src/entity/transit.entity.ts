@@ -2,7 +2,7 @@ import { ForbiddenException } from '@nestjs/common';
 import { BaseEntity } from '../common/base.entity';
 import { Column, Entity, JoinColumn, ManyToMany, ManyToOne } from 'typeorm';
 import { Driver } from './driver.entity';
-import { Client, PaymentType } from './client.entity';
+import { Client, PaymentType } from '../modules/client/client.entity';
 import { Address } from './address.entity';
 import { CarClass } from '../modules/car-type/car-type.entity';
 
