@@ -2,7 +2,7 @@ import { DayOfWeek, Status, Transit } from '../entity/transit.entity';
 import { DriverDto } from './driver.dto';
 import { ClaimDto } from './claim.dto';
 import { AddressDto } from './address.dto';
-import { CarClass } from '../entity/car-type.entity';
+import { CarClass } from '../modules/car-type/car-type.entity';
 import { ClientDto } from './client.dto';
 import * as dayjs from 'dayjs';
 import * as dayOfYear from 'dayjs/plugin/dayOfYear';

@@ -5,7 +5,7 @@ import { TransitRepository } from '../repository/transit.repository';
 import { AppProperties } from '../config/app-properties.config';
 import { ClaimRepository } from '../repository/claim.repository';
 import { ClaimNumberGenerator } from './claim-number-generator.service';
-import { AwardsService } from './awards.service';
+import { AwardsService } from '../modules/awards-account/awards.service';
 import { ClientNotificationService } from './client-notification.service';
 import { DriverNotificationService } from './driver-notification.service';
 import { ClaimDto } from '../dto/claim.dto';

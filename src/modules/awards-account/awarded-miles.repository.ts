@@ -1,6 +1,6 @@
+import { AwardedMiles } from 'src/entity/awarded-miles.entity';
+import { Client } from 'src/entity/client.entity';
 import { EntityRepository, Repository } from 'typeorm';
-import { AwardedMiles } from '../entity/awarded-miles.entity';
-import { Client } from '../entity/client.entity';
 
 @EntityRepository(AwardedMiles)
 export class AwardedMilesRepository extends Repository<AwardedMiles> {

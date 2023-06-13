@@ -1,7 +1,7 @@
 import { BaseEntity } from '../common/base.entity';
 import { Column, Entity, ManyToOne } from 'typeorm';
 import { Driver } from './driver.entity';
-import { CarClass } from './car-type.entity';
+import { CarClass } from '../modules/car-type/car-type.entity';
 
 @Entity()
 export class DriverSession extends BaseEntity {
