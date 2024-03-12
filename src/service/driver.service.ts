@@ -1,8 +1,8 @@
+import { DriverLicense } from './../entity/driver-licence.entity';
 import {
   Injectable,
   NotAcceptableException,
   NotFoundException,
-  ForbiddenException,
 } from '@nestjs/common';
 import { Driver, DriverStatus, DriverType } from '../entity/driver.entity';
 import { DriverDto } from '../dto/driver.dto';
@@ -16,8 +16,6 @@ import dayjs from 'dayjs';
 
 @Injectable()
 export class DriverService {
-  public static DRIVER_LICENSE_REGEX = '^[A-Z9]{5}\\d{6}[A-Z9]{2}\\d[A-Z]{2}$';
-
   constructor(
     @InjectRepository(DriverRepository)
     private driverRepository: DriverRepository,
@@ -35,17 +33,13 @@ export class DriverService {
     firstName,
   }: CreateDriverDto): Promise<Driver> {
     const driver = new Driver();
+
     if (driver.getStatus() === DriverStatus.ACTIVE) {
-      if (
-        !driverLicense ||
-        !driverLicense.match(DriverService.DRIVER_LICENSE_REGEX)
-      ) {
-        throw new NotAcceptableException(
-          'Illegal license no = ' + driverLicense,
-        );
-      }
+      driver.setDriverLicense(DriverLicense.withLicense(driverLicense));
+    } else {
+      driver.setDriverLicense(DriverLicense.withoutValidation(driverLicense));
     }
-    driver.setDriverLicense(driverLicense);
+
     driver.setLastName(lastName);
     driver.setFirstName(firstName);
     driver.setStatus(DriverStatus.INACTIVE);
@@ -82,11 +76,13 @@ export class DriverService {
       );
     }
     if (status === DriverStatus.ACTIVE) {
-      const license = driver.getDriverLicense();
+      const driverLicense = driver.getDriverLicense().asString();
 
-      if (!license) {
-        throw new ForbiddenException(
-          `Status cannot be ACTIVE. Illegal license no ${license}`,
+      try {
+        driver.setDriverLicense(DriverLicense.withLicense(driverLicense));
+      } catch (e) {
+        throw new NotAcceptableException(
+          'Illegal license no = ' + driverLicense,
         );
       }
     }
@@ -103,11 +99,8 @@ export class DriverService {
         `Driver with id ${driverId} does not exists.`,
       );
     }
-    if (!newLicense || !newLicense.match(DriverService.DRIVER_LICENSE_REGEX)) {
-      throw new NotAcceptableException(
-        'Illegal new license no = ' + newLicense,
-      );
-    }
+
+    driver.setDriverLicense(DriverLicense.withLicense(newLicense));
 
     if (!(driver.getStatus() === DriverStatus.ACTIVE)) {
       throw new NotAcceptableException(
@@ -115,7 +108,6 @@ export class DriverService {
       );
     }
 
-    driver.setDriverLicense(newLicense);
     await this.driverRepository.save(driver);
   }
 

@@ -3,6 +3,7 @@ import { BaseEntity } from '../common/base.entity';
 import { Transit } from './transit.entity';
 import { DriverAttribute } from './driver-attribute.entity';
 import { DriverFee } from './driver-fee.entity';
+import { DriverLicense } from './driver-licence.entity';
 
 export enum DriverStatus {
   INACTIVE = 'inactive',
@@ -26,7 +27,7 @@ export class Driver extends BaseEntity {
   private lastName: string;
 
   @Column()
-  private driverLicense: string;
+  private driverLicense: DriverLicense;
 
   @Column({ nullable: true, type: 'varchar' })
   private photo: string | null;
@@ -69,8 +70,8 @@ export class Driver extends BaseEntity {
     this.firstName = firstName;
   }
 
-  public setDriverLicense(license: string) {
-    this.driverLicense = license;
+  public setDriverLicense(driverLicense: DriverLicense) {
+    this.driverLicense = driverLicense;
   }
 
   public setStatus(status: DriverStatus) {
@@ -93,7 +94,7 @@ export class Driver extends BaseEntity {
     return this.firstName;
   }
 
-  public getDriverLicense() {
+  public getDriverLicense(): DriverLicense {
     return this.driverLicense;
   }
 
