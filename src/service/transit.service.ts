@@ -26,6 +26,7 @@ import * as dayjs from 'dayjs';
 import { DriverStatus } from '../entity/driver.entity';
 import { DriverPositionV2Dto } from '../dto/driver-position-v2.dto';
 import { CreateTransitDto } from '../dto/create-transit.dto';
+import { Money } from '@/entity/money/money';
 
 @Injectable()
 export class TransitService {
@@ -583,7 +584,7 @@ export class TransitService {
       transit.calculateFinalCosts();
       driver.setOccupied(false);
       transit.setCompleteAt(Date.now());
-      const driverFee = await this.driverFeeService.calculateDriverFee(
+      const driverFee: Money = await this.driverFeeService.calculateDriverFee(
         transitId,
       );
       transit.setDriversFee(driverFee);
@@ -594,7 +595,7 @@ export class TransitService {
       );
       await this.transitRepository.save(transit);
       await this.invoiceGenerator.generate(
-        transit.getPrice() ?? 0,
+        transit.getPrice()?.toInt() ?? 0,
         transit.getClient().getName() + ' ' + transit.getClient().getLastName(),
       );
     } else {

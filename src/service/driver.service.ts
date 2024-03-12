@@ -13,6 +13,7 @@ import { DriverAttributeRepository } from '../repository/driver-attribute.reposi
 import { TransitRepository } from '../repository/transit.repository';
 import { DriverFeeService } from './driver-fee.service';
 import dayjs from 'dayjs';
+import { Money } from '@/entity/money/money';
 
 @Injectable()
 export class DriverService {
@@ -131,7 +132,7 @@ export class DriverService {
     driverId: string,
     year: number,
     month: number,
-  ) {
+  ): Promise<Money> {
     const driver = await this.driverRepository.findOne(driverId);
 
     if (!driver) {
@@ -157,7 +158,7 @@ export class DriverService {
           this.driverFeeService.calculateDriverFee(t.getId()),
         ),
       )
-    ).reduce((prev, curr) => prev + curr, 0);
+    ).reduce((prev, curr) => prev.add(curr), new Money(0));
 
     return sum;
   }
@@ -165,11 +166,14 @@ export class DriverService {
   public async calculateDriverYearlyPayment(
     driverId: string,
     year: number,
-  ): Promise<Map<number, number>> {
-    const payments = new Map();
+  ): Promise<Map<number, Money>> {
+    const payments: Map<number, Money> = new Map();
     const months = Array.from({ length: 5 }).map((_, i) => i);
     for (const m of months) {
-      payments.set(m, this.calculateDriverMonthlyPayment(driverId, year, m));
+      payments.set(
+        m,
+        await this.calculateDriverMonthlyPayment(driverId, year, m),
+      );
     }
     return payments;
   }
